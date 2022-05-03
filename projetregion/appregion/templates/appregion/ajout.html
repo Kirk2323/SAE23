@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formulaire de saisie</title>
+</head>
+<body>
+
+<h1> Saisie d'une nouvelle région</h1>
+    {% if id != '' %}
+        <form method="post" action="/appregion/updatetraitement/{{id}}/">
+    {% else %}}
+        <form method="post" action="/appregion/traitement2/">
+    {% endif %}
+    {% csrf_token %}
+    {{form.as_ul}}
+    <input type="submit" value="envoyez les données"/>
+</form>
+</body>
+</html>

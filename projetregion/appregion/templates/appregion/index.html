@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1> Bienvenue sur mes informations de régions</h1>
+<a href="/appregion/ajout"> Ajouter une région</a>
+
+<ol>
+    {% for r in liste %}
+        <li>{{r}}  <a href="/appregion/affiche/{{r.id}}/"> affiche</a> <a href="/appregion/update/{{r.id}}/"> update</a> <a href="/appregion/delete/{{r.id}}/"> delete</a> </li>
+    {% endfor %}
+</ol>
+
+
+</body>
+</html>
