@@ -16,22 +16,6 @@ def traitement(request):
     return render(request,"appregion/traitement.html",{"nom": nom})
 
 
-def traitement2(request):
-    rform = RegionForm(request.POST)
-    if rform.is_valid():
-        region = rform.save()
-        return HttpResponseRedirect("/appregion/", {"region" : region})
-    else :
-        return render(request, "appregion/ajout.html", {"form": rform})
-
-def traitement3(request):
-    cform = ChampForm(request.POST)
-    if cform.is_valid():
-        champion = cform.save()
-        return HttpResponseRedirect("/appregion/", {"champion" : champion})
-    else :
-        return render(request, "appregion/ajout2.html", {"form": cform})
-
 def ajout(request):
     if request.method == "POST":
         form = RegionForm(request)
@@ -60,18 +44,35 @@ def affiche(request, id):
     return render(request,"appregion/affiche.html", {"region" : region})
 
 def affiche2(request, id):
-    region =models.Region.objects.get( pk = id)
-    return render(request,"appregion/affiche.html", {"region" : region})
+    champ =models.Champ.objects.get( pk = id)
+    return render(request,"appregion/affiche.html", {"champ" : champ})
 
 def update(request, id):
-    region = models.Region.objects.get(pk=id)
+    region = models.Region.objects.get(pk = id)
     form = RegionForm(region.dico())
-    return render(request,"appregion/ajout.html",{"form":form, "id":id})
+    return render(request,'appregion/ajout.html',{'form':form, 'id':id})
 
 def update2(request, id):
-    region = models.Region.objects.get(pk=id)
-    form = RegionForm(region.dico())
-    return render(request,"appregion/ajout.html",{"form":form, "id":id})
+    champ = models.Champ.objects.get(pk=id)
+    form = ChampForm(champ.dico())
+    return render(request,'appregion/ajout2.html',{'form':form, 'id':id})
+
+
+def traitement2(request):
+    rform = RegionForm(request.POST)
+    if rform.is_valid():
+        region = rform.save()
+        return HttpResponseRedirect("/appregion/", {"region" : region})
+    else :
+        return render(request, "appregion/ajout.html", {"form": rform})
+
+def traitement3(request):
+    cform = ChampForm(request.POST)
+    if cform.is_valid():
+        champion = cform.save()
+        return HttpResponseRedirect("/appregion/", {"champion" : champion})
+    else :
+        return render(request, "appregion/ajout2.html", {"form": cform})
 
 def updatetraitement(request, id):
     rform = RegionForm(request.POST)
