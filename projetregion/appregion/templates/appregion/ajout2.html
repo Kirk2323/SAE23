@@ -7,7 +7,6 @@
     <link href="{%static 'appregion/style.css' %}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
 <nav>
         <ul class="topnav">
               <a href="interets.html"><p>Page d'accueil</p></a></a><a href="/appregion/"><p>Voir les régions</p></a></a><a href="/appregion/ch/"><p>Voir les champions</p></a></a><a href="/appregion/ajout2/"><p>Ajouter un Champion</p></a></a><a href="/appregion/ajout/"><p>Ajouter une Région</p></a></a>
@@ -15,11 +14,12 @@
         </ul>
       </nav>
 
-<h1> Saisie d'une nouvelle région</h1>
+
+<h1> Saisie d'un nouveau Champion</h1>
     {% if id != '' %}
-        <form method="post" action="/appregion/updatetraitement/{{id}}/">
+        <form method="post" action="/appregion/updatetraitement2/{{id}}/">
     {% else %}}
-        <form method="post" action="/appregion/traitement2/"></form>
+        <form method="post" action="/appregion/traitement3/"></form>
     {% endif %}
     {% csrf_token %}
     {{form.as_ul}}

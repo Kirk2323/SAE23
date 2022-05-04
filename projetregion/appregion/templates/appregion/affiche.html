@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>affichage {{region.nom}}</title>
+    {% load static %}
+    <link href="{%static 'appregion/style.css' %}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     {{region}} a un biome de {{region.biome}}

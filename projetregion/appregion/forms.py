@@ -11,3 +11,14 @@ class RegionForm(ModelForm):
             'biome' : _('Type de biome'),
             'description' : _('Description de la région'),
         }
+
+class ChampForm(ModelForm):
+    class Meta:
+        model = models.Champ
+        fields = ('alias','age','sexe','classification')
+        labels = {
+            'alias' : _('Alias'),
+            'age' : _('Âge'),
+            'sexe' : _('Sexe'),
+            'classification': _('classification'),
+        }
