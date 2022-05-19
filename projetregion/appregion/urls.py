@@ -3,10 +3,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('bonjour/',views.bonjour),
-    path('saisie/',views.saisie),
-    path('traitement/',views.traitement),
     path('ajout/',views.ajout),
+
+    path('index2.html',views.index2),
+    path('ajout/index2.html',views.index2),
+    path('ajout2/index2.html',views.index2),
+
+
     path('ajout2/',views.ajout2),
     path('traitement2/',views.traitement2),
     path('traitement3/',views.traitement3),
@@ -27,4 +30,5 @@ urlpatterns = [
     path('delete/<int:id>/',views.delete),
     path('delete2/<int:id>/',views.delete2),
 ]
+
 

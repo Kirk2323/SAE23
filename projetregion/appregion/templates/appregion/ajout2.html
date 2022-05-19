@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>formulaire de saisie</title>
-    {% load static %}
-    <link href="{%static 'appregion/style.css' %}" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-<nav>
-        <ul class="topnav">
-              <a href="interets.html"><p>Page d'accueil</p></a></a><a href="/appregion/"><p>Voir les régions</p></a></a><a href="/appregion/ch/"><p>Voir les champions</p></a></a><a href="/appregion/ajout2/"><p>Ajouter un Champion</p></a></a><a href="/appregion/ajout/"><p>Ajouter une Région</p></a></a>
+{% extends "appregion/base.html" %}
 
-        </ul>
-      </nav>
+{% block title %}
+Ajouter un champion
+{% endblock %}
 
-
-<h1> Saisie d'un nouveau Champion</h1>
+{%block content %}
+<div class="login-box">
+<h2> Saisie d'un nouveau Champion</h2>
     {% if id != '' %}
         <form method="post" action="/appregion/updatetraitement2/{{id}}/">
     {% else %}}
@@ -25,5 +16,10 @@
     {{form.as_ul}}
     <input type="submit" value="envoyez les données"/>
     </form>
-</body>
-</html>
+</div>
+
+
+
+
+
+{% endblock %}

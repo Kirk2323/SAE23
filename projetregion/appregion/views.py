@@ -6,14 +6,7 @@ from . import models
 # Create your views here.
 
 def bonjour(request):
-    return render(request,"appregion/bonjour.html")
-
-def saisie(request):
-    return render(request,"appregion/saisie.html")
-
-def traitement(request):
-    nom = request.POST["nom"]
-    return render(request,"appregion/traitement.html",{"nom": nom})
+    return render(request,"appregion/base.html")
 
 
 def ajout(request):
@@ -37,6 +30,10 @@ def index(request):
     liste2 = list(models.Champ.objects.all())
     return render(request,"appregion/index.html",{"liste" : liste,"liste2" : liste2})
 
+def index2(request):
+    liste = list(models.Region.objects.all())
+    liste2 = list(models.Champ.objects.all())
+    return render(request, "appregion/index2.html", {"liste": liste, "liste2": liste2})
 
 
 def affiche(request, id):
@@ -45,7 +42,7 @@ def affiche(request, id):
 
 def affiche2(request, id):
     champ =models.Champ.objects.get( pk = id)
-    return render(request,"appregion/affiche.html", {"champ" : champ})
+    return render(request,"appregion/affiche2.html", {"champ" : champ})
 
 def update(request, id):
     region = models.Region.objects.get(pk = id)

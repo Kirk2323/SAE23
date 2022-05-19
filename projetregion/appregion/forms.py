@@ -7,7 +7,7 @@ class RegionForm(ModelForm):
         model = models.Region
         fields = ('nom','biome','description')
         labels = {
-            'nom' : _('Nom de la région'),
+            'nom' : _('Nom de région'),
             'biome' : _('Type de biome'),
             'description' : _('Description de la région'),
         }
@@ -15,10 +15,11 @@ class RegionForm(ModelForm):
 class ChampForm(ModelForm):
     class Meta:
         model = models.Champ
-        fields = ('alias','age','sexe','classification')
+        fields = ('region','alias','age','sexe','classification')
         labels = {
+            'region' : _('Region'),
             'alias' : _('Alias'),
             'age' : _('Âge'),
             'sexe' : _('Sexe'),
-            'classification': _('classification'),
+            'classification': _('Histoire'),
         }

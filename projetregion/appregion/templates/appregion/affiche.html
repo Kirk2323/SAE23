@@ -1,16 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>affichage {{region.nom}}</title>
+{% extends "appregion/base.html" %}
+
+{% block title %}
+Informations supplémentaires
+{% endblock %}
+
+{%block content %}
+<title>affichage {{region.nom}}</title>
     {% load static %}
     <link href="{%static 'appregion/style.css' %}" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-    {{region}} a un biome de {{region.biome}}
 
-    <p>
+
+
+<body>
+<div class="table-title">
+<h3>Les informations des régions</h3>
+</div>
+<table class="table-fill">
+    <thead>
+<tr>
+    <td class="text-left">
+    {{region}} a un biome de {{region.biome}} et voici sa description :
+        <p></p>
         {{region.description}}
-    </p>
+        <p></p>
+<button>
+        <a href="/appregion">Retour</a>
+        </button>
+</td>
+</tr>
+    </thead>
+</table>
 </body>
-</html>
+
+{% endblock %}

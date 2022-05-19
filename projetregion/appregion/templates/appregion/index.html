@@ -1,39 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>index</title>
-    {% load static %}
-    <link href="{%static 'appregion/style.css' %}" rel="stylesheet" type="text/css"/>
-</head>
-<body>
+{% extends "appregion/base.html" %}
 
-<nav>
-    <ul class="topnav">
-        <a href="interets.html"><p>Page d'accueil</p></a></a><a href="/appregion/"><p>Voir les régions</p></a></a><a
-            href="/appregion/ajout/"><p>Voir les champions</p></a></a><a href="/appregion/ajout2/"><p>Ajouter un
-        Champion</p></a></a><a href="/appregion/ajout/"><p>Ajouter une Région</p></a></a>
+{% block title %}
+Menu principal
+{% endblock %}
 
-    </ul>
-</nav>
+{%block content %}
 
-<h1> Bienvenue sur mes informations de régions</h1>
-
+<div class="table-title">
+<h3>Les régions</h3>
+</div>
+<table class="table-fill">
+    <thead>
+<tr>
+    <td class="text-left">
 <ol>
     {% for r in liste %}
-    <li>{{r}} <a href="/appregion/affiche/{{r.id}}/"> affiche</a> <a href="/appregion/update/{{r.id}}/"> update</a> <a
-            href="/appregion/delete/{{r.id}}/"> delete</a></li>
-    {% endfor %}
-</ol>
 
-<h1> Bienvenue sur mes informations des champions</h1>
+    <li>{{r}} <br /> <button class="outline"><a href="/appregion/affiche/{{r.id}}/"> affiche</a></button> <button class="outline"><a href="/appregion/update/{{r.id}}/"> update</a></button> <button class="outline"><a
+            href="/appregion/delete/{{r.id}}/"> delete</a></button></li><br />
+    {% endfor %}
+
+</ol></td>
+</tr>
+    </thead>
+</table>
+<div class="table-title">
+<h3>Les champions</h3>
+</div>
+<table class="table-fill">
+    <thead>
+<tr>
+    <td class="text-left">
 <ol>
     {% for c in liste2 %}
-    <li>{{c}} <a href="/appregion/affiche2/{{c.id}}/"> affiche</a> <a href="/appregion/update2/{{c.id}}/"> update</a> <a
-            href="/appregion/delete2/{{c.id}}/"> delete</a></li>
+    <li>{{c}} <br /><button><a href="/appregion/affiche2/{{c.id}}/"> affiche</a></button> <button><a href="/appregion/update2/{{c.id}}/"> update</a></button> <button><a
+            href="/appregion/delete2/{{c.id}}/"> delete</a></button> </li><br />
+
     {% endfor %}
 </ol>
+</td>
+</tr>
+    </thead>
+</table>
 
 
-</body>
-</html>
+
+
+
+{% endblock %}
