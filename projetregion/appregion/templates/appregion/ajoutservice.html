@@ -1,0 +1,25 @@
+{% extends "appregion/base.html" %}
+
+{% block title %}
+Ajouter un champion
+{% endblock %}
+
+{%block content %}
+<div class="login-box">
+<h2> ajouter un service </h2>
+    {% if id != '' %}
+        <form method="post" action="/appregion/updatetraitementservice/{{id}}/">
+    {% else %}}
+        <form method="post" action="/appregion/traitementservice/"></form>
+    {% endif %}
+    {% csrf_token %}
+    {{form.as_ul}}
+    <input type="submit" value="envoyez les données"/>
+    </form>
+</div>
+
+
+
+
+
+{% endblock %}

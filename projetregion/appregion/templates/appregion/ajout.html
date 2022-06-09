@@ -1,0 +1,22 @@
+{% extends "appregion/base.html" %}
+
+{% block title %}
+Ajouter une region
+{% endblock %}
+
+{%block content %}
+
+<div class="login-box">
+<h2> Saisie d'une nouvelle région</h2>
+    {% if id != '' %}
+        <form method="post" action="/appregion/updatetraitement/{{id}}/">
+    {% else %}}
+        <form method="post" action="/appregion/traitement2/"></form>
+    {% endif %}
+    {% csrf_token %}
+    {{form.as_ul}}
+    <input type="submit" value="envoyez les données"/>
+    </form>
+</div>
+
+{% endblock %}

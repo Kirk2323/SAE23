@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Régions</title>
+    {% load static %}
+    <link href="{%static 'appregion/style.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<nav>
+        <ul class="topnav">
+              <a href="interets.html"><p>Page d'accueil</p></a></a><a href="/appregion/"><p>Voir les régions</p></a></a><a href="/appregion/ch/"><p>Voir les champions</p></a></a><a href="/appregion/ajout2/"><p>Ajouter un Champion</p></a></a><a href="/appregion/ajout/"><p>Ajouter une Région</p></a></a>
+
+        </ul>
+      </nav>
+<ol>
+    {% for r in liste %}
+        <li>{{r}}  <a href="/appregion/affiche/{{r.id}}/"> affiche</a> <a href="/appregion/update/{{r.id}}/"> update</a> <a href="/appregion/delete/{{r.id}}/"> delete</a> </li>
+    {% endfor %}
+</ol>
+
+</body>
+</html>

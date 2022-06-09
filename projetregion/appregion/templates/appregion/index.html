@@ -1,0 +1,46 @@
+{% extends "appregion/base.html" %}
+
+{% block title %}
+Menu principal
+{% endblock %}
+
+{%block content %}
+
+<div class="table-title">
+<h3>Les régions</h3>
+</div>
+<table class="table-fill">
+    <thead>
+<tr>
+    <td class="text-left">
+<ol>
+    {% for r in liste %}
+
+    <li>{{r}} <br /> <button class="outline"><a href="/appregion/affiche/{{r.id}}/"> affiche</a></button> <button class="outline"><a href="/appregion/update/{{r.id}}/"> update</a></button> <button class="outline"><a
+            href="/appregion/delete/{{r.id}}/"> delete</a></button></li><br />
+    {% endfor %}
+
+</ol></td>
+</tr>
+    </thead>
+</table>
+<div class="table-title">
+<h3>Les champions</h3>
+</div>
+<table class="table-fill">
+    <thead>
+<tr>
+    <td class="text-left">
+<ol>
+    {% for c in liste2 %}
+    <li>{{c}} <br /><button><a href="/appregion/affiche2/{{c.id}}/"> affiche</a></button> <button><a href="/appregion/update2/{{c.id}}/"> update</a></button> <button><a
+            href="/appregion/delete2/{{c.id}}/"> delete</a></button> </li><br />
+
+    {% endfor %}
+</ol>
+</td>
+</tr>
+    </thead>
+</table>
+
+{% endblock %}
