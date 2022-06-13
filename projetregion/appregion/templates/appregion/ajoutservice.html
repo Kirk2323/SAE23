@@ -7,10 +7,10 @@ Ajouter un champion
 {%block content %}
 <div class="login-box">
 <h2> ajouter un service </h2>
-    {% if id != '' %}
-        <form method="post" action="/appregion/updatetraitementservice/{{id}}/">
+    {% if id is None %}
+          <form method="post" action="/appregion/traitementservice/">
     {% else %}}
-        <form method="post" action="/appregion/traitementservice/"></form>
+      <form method="post" action="/appregion/updatetraitementservice/{{id}}/">
     {% endif %}
     {% csrf_token %}
     {{form.as_ul}}

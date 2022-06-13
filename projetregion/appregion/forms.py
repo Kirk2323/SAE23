@@ -48,3 +48,34 @@ class appliForm(ModelForm):
             'serveur':_('serveur'),
             'utilisateur':_('utilisateur'),
         }
+
+class utilsateurForm(ModelForm):
+    class Meta:
+        model = models.utilisateur
+        fields = ('nom','prenom','mail')
+        labels = {
+            'nom' :_('nom'),
+            'prenom' :_('prenom'),
+            'mail' :_('mail'),
+        }
+
+class typeForm(ModelForm):
+    class Meta:
+        model = models.type
+        fields = ('type','description')
+        labels = {
+            'type' :_('type'),
+            'descritpion' :_('description'),
+        }
+
+class serveurForm(ModelForm):
+    class Meta:
+        model = models.serveur
+        fields = ('nom','type','proc','mem','stock')
+        labels = {
+            'nom' :_('nom'),
+            'type' :_('type'),
+            'proc' :_('proc'),
+            'mem' :_('mem'),
+            'stock' :_('stock')
+        }
